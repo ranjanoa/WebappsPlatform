@@ -6,68 +6,137 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentToolIndex, setCurrentToolIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('all');
 
-  // Web Apps Tools Data
+  // Web Apps Platform Data - Organized by Categories
   const platformData = {
-    tools: [
-      {
-        id: 'tool1',
-        title: 'Industrial AI Control',
-        description: 'A cutting-edge AI optimization digital twin solution for industrial processes. This provides real-time 3D simulation and optimization of industrial lime kiln. Leverage predictive simulation and immersive visualization for proactive maintenance and operational excellence in a truly futuristic environment.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=1B0tzzRBIFVgcv9pLjys80kZxFmKnXUx7&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/1rwm8u1ygODtuVTdPalIBN3e5NMldFYWt/view?usp=sharing',
-        techStack: 'Digital Twins, Process Simulation, Predictive Control, Energy Optimization',
-        category: 'AI & Optimization'
+    categories: {
+      generic: {
+        title: 'Generic Web Apps',
+        description: 'Everyday productivity tools for everyone',
+        icon: 'fas fa-tools',
+        apps: [
+          {
+            id: 'generic1',
+            title: 'Resume Creator',
+            description: 'Create professional, ATS-friendly resumes with modern templates. Customize layouts, add your experience, and download in PDF format. Perfect for job seekers looking to make a great first impression.',
+            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=Resume+Creator',
+            liveLink: '#',
+            techStack: 'React, PDF Generation, Templates, Form Validation',
+            category: 'Productivity',
+            status: 'Coming Soon'
+          },
+          {
+            id: 'generic2',
+            title: 'PDF Toolkit',
+            description: 'Comprehensive PDF management tool. Merge multiple PDFs, split large documents, compress file sizes, and convert between formats. All processing happens in your browser for maximum privacy.',
+            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=PDF+Toolkit',
+            liveLink: '#',
+            techStack: 'PDF.js, File Processing, Client-side Processing',
+            category: 'Utilities',
+            status: 'Coming Soon'
+          },
+          {
+            id: 'generic3',
+            title: 'Image Compressor',
+            description: 'Optimize images for web without losing quality. Batch compress JPG, PNG, and WebP files. Reduce file sizes by up to 80% while maintaining visual fidelity. Perfect for web developers and content creators.',
+            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=Image+Compressor',
+            liveLink: '#',
+            techStack: 'Canvas API, Image Processing, WebP Conversion',
+            category: 'Media',
+            status: 'Coming Soon'
+          },
+          {
+            id: 'generic4',
+            title: 'URL Shortener',
+            description: 'Create short, memorable links for easy sharing. Track click analytics, set expiration dates, and customize short URLs. Ideal for social media, marketing campaigns, and link management.',
+            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=URL+Shortener',
+            liveLink: '#',
+            techStack: 'API Integration, Analytics, QR Code Generation',
+            category: 'Utilities',
+            status: 'Coming Soon'
+          }
+        ]
       },
-      {
-        id: 'tool2',
-        title: 'AuraGrind: SAG Mill Digital Twin',
-        description: 'Experience the future of mineral processing with our advanced SagMill Digital Twin. This 3D simulation provides real-time insights into mill performance, predicting wear, optimizing energy consumption, and enhancing throughput. Leverage predictive analytics and immersive visualization for proactive maintenance and operational excellence.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=1YFBNqwx-cMqBXe3LafvbDVFHOjP8ai_k&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/1DMqqk6ixXG2ofg0F3yCG7UWixL6SmSB8/view?usp=sharing',
-        techStack: 'Digital Twins, 3D Simulation, Predictive Analytics, AI/ML, Process Optimization',
-        category: 'Digital Twins'
-      },
-      {
-        id: 'tool3',
-        title: 'Digital Twin - 3D Stockpile Visualisation',
-        description: 'This 3D material tracking and blending model empowers plant operators to control mill feed quality. It visually maps the stockpile\'s composition by ore hardness. Simulate different reclaim feeder rates to test blending scenarios and predict the resulting hardness sent to the mill. This tool transforms the stockpile into a predictable resource.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=1k8yi9HfNdzI6JR75DO60QxUUaYrJmFMq&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/1PWTRhFkOnbraC1TXvhCWMytkVSzzpp0K/view?usp=sharing',
-        techStack: 'Python, Simulation Software, Data Analytics, Digital Twins',
-        category: 'Visualization'
-      },
-      {
-        id: 'tool4',
-        title: 'P&ID Analyzer',
-        description: 'This AI-powered desktop P&ID Analyzer lets you upload P&ID images or PDFs. Using Google\'s Gemini AI, it automatically extracts equipment, connections, and key simulation parameters, organizing them into clear tables for review. Requires a user-provided Google AI API key to run.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=1L-L0ivvqoZNc_BRZig7rOL5Az6cRkiux&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/1vk3KOxFIKRkxVFpOjcN3BogDN_mbAi4I/view?usp=sharing',
-        techStack: 'AI, Document Analysis, Simulation Parameters',
-        category: 'AI & Analysis'
-      },
-      {
-        id: 'tool5',
-        title: 'HydroSense Pipeline Monitor',
-        description: 'HydroSense is a web-based application designed to simulate and monitor pipeline hydraulic behavior, with a focus on real-time leak detection and analysis. It utilizes the Method of Characteristics (MOC) to model transient flow conditions within the pipeline.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=1xqFWNVlDkJJwq8q7P_6FGlhqkCQ7TLCa&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/19qyQxT51OxxElUeBzp0Cp1mw9QkFaqyB/view?usp=sharing',
-        techStack: 'Hydraulic Simulation, MOC, Real-time Monitoring, Leak Detection',
-        category: 'Monitoring'
-      },
-      {
-        id: 'tool6',
-        title: 'Concentrator Value Modelling',
-        description: 'This tool is designed to help metallurgists, plant managers, and engineers model the financial and environmental impact of potential process improvements in a mineral concentrator plant. By defining a baseline scenario and then selecting various technological solutions, users can quantify benefits in terms of increased revenue, cost savings, CO2 reduction, and overall project ROI.',
-        thumbnail: 'https://drive.google.com/thumbnail?id=18ZbyUebl2r0uepCg9Kg73fqMlo9j8Hve&sz=w600',
-        liveLink: 'https://drive.google.com/file/d/1wLJs3O4g09dP9NTURiosyg_elRer3WMa/view?usp=sharing',
-        techStack: 'Financial Modeling, Environmental Impact, Process Improvement, ROI Analysis',
-        category: 'Analytics'
+      engineering: {
+        title: 'Engineering Web Apps',
+        description: 'Advanced industrial simulation and optimization tools',
+        icon: 'fas fa-industry',
+        apps: [
+          {
+            id: 'eng1',
+            title: 'Industrial AI Control',
+            description: 'A cutting-edge AI optimization digital twin solution for industrial processes. This provides real-time 3D simulation and optimization of industrial lime kiln. Leverage predictive simulation and immersive visualization for proactive maintenance and operational excellence in a truly futuristic environment.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=1B0tzzRBIFVgcv9pLjys80kZxFmKnXUx7&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/1rwm8u1ygODtuVTdPalIBN3e5NMldFYWt/view?usp=sharing',
+            techStack: 'Digital Twins, Process Simulation, Predictive Control, Energy Optimization',
+            category: 'AI & Optimization'
+          },
+          {
+            id: 'eng2',
+            title: 'AuraGrind: SAG Mill Digital Twin',
+            description: 'Experience the future of mineral processing with our advanced SagMill Digital Twin. This 3D simulation provides real-time insights into mill performance, predicting wear, optimizing energy consumption, and enhancing throughput. Leverage predictive analytics and immersive visualization for proactive maintenance and operational excellence.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=1YFBNqwx-cMqBXe3LafvbDVFHOjP8ai_k&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/1DMqqk6ixXG2ofg0F3yCG7UWixL6SmSB8/view?usp=sharing',
+            techStack: 'Digital Twins, 3D Simulation, Predictive Analytics, AI/ML, Process Optimization',
+            category: 'Digital Twins'
+          },
+          {
+            id: 'eng3',
+            title: 'Digital Twin - 3D Stockpile Visualisation',
+            description: 'This 3D material tracking and blending model empowers plant operators to control mill feed quality. It visually maps the stockpile\'s composition by ore hardness. Simulate different reclaim feeder rates to test blending scenarios and predict the resulting hardness sent to the mill. This tool transforms the stockpile into a predictable resource.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=1k8yi9HfNdzI6JR75DO60QxUUaYrJmFMq&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/1PWTRhFkOnbraC1TXvhCWMytkVSzzpp0K/view?usp=sharing',
+            techStack: 'Python, Simulation Software, Data Analytics, Digital Twins',
+            category: 'Visualization'
+          },
+          {
+            id: 'eng4',
+            title: 'P&ID Analyzer',
+            description: 'This AI-powered desktop P&ID Analyzer lets you upload P&ID images or PDFs. Using Google\'s Gemini AI, it automatically extracts equipment, connections, and key simulation parameters, organizing them into clear tables for review. Requires a user-provided Google AI API key to run.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=1L-L0ivvqoZNc_BRZig7rOL5Az6cRkiux&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/1vk3KOxFIKRkxVFpOjcN3BogDN_mbAi4I/view?usp=sharing',
+            techStack: 'AI, Document Analysis, Simulation Parameters',
+            category: 'AI & Analysis'
+          },
+          {
+            id: 'eng5',
+            title: 'HydroSense Pipeline Monitor',
+            description: 'HydroSense is a web-based application designed to simulate and monitor pipeline hydraulic behavior, with a focus on real-time leak detection and analysis. It utilizes the Method of Characteristics (MOC) to model transient flow conditions within the pipeline.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=1xqFWNVlDkJJwq8q7P_6FGlhqkCQ7TLCa&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/19qyQxT51OxxElUeBzp0Cp1mw9QkFaqyB/view?usp=sharing',
+            techStack: 'Hydraulic Simulation, MOC, Real-time Monitoring, Leak Detection',
+            category: 'Monitoring'
+          },
+          {
+            id: 'eng6',
+            title: 'Concentrator Value Modelling',
+            description: 'This tool is designed to help metallurgists, plant managers, and engineers model the financial and environmental impact of potential process improvements in a mineral concentrator plant. By defining a baseline scenario and then selecting various technological solutions, users can quantify benefits in terms of increased revenue, cost savings, CO2 reduction, and overall project ROI.',
+            thumbnail: 'https://drive.google.com/thumbnail?id=18ZbyUebl2r0uepCg9Kg73fqMlo9j8Hve&sz=w600',
+            liveLink: 'https://drive.google.com/file/d/1wLJs3O4g09dP9NTURiosyg_elRer3WMa/view?usp=sharing',
+            techStack: 'Financial Modeling, Environmental Impact, Process Improvement, ROI Analysis',
+            category: 'Analytics'
+          }
+        ]
       }
-    ],
+    },
     contactEmail: 'ranjanoa@gmail.com',
     linkedinUrl: 'https://linkedin.com/in/ranjanoa',
     githubUrl: 'https://github.com/ranjanoa'
+  };
+
+  // Get all apps for carousel
+  const allApps = [
+    ...platformData.categories.generic.apps,
+    ...platformData.categories.engineering.apps
+  ];
+
+  // Get filtered apps based on active category
+  const getFilteredApps = () => {
+    if (activeCategory === 'all') {
+      return allApps;
+    }
+    return platformData.categories[activeCategory].apps;
   };
 
   // Scroll tracking for parallax effects
@@ -99,12 +168,12 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentToolIndex((prevIndex) =>
-        (prevIndex + 1) % platformData.tools.length
+        (prevIndex + 1) % allApps.length
       );
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [platformData.tools.length]);
+  }, [allApps.length]);
 
   return (
     <div className="font-sans text-gray-100 antialiased min-h-screen bg-gray-900 overflow-x-hidden">
@@ -475,10 +544,10 @@ function App() {
           </div>
 
           {/* Featured Tool Showcase Section */}
-          {platformData.tools.length > 0 && (
+          {allApps.length > 0 && (
             <div className="w-full flex items-center justify-center py-8 md:py-12 fade-in">
               <div className="tool-showcase-container">
-                {platformData.tools.map((tool, index) => (
+                {allApps.map((tool, index) => (
                   <div
                     key={tool.id}
                     style={{ opacity: index === currentToolIndex ? 1 : 0, zIndex: index === currentToolIndex ? 10 : 1 }}
@@ -529,16 +598,62 @@ function App() {
         {/* Tools Section */}
         <section id="tools" className="py-20 md:py-32 relative">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16 fade-in">
+            <div className="text-center mb-12 fade-in">
               <h2 className="text-5xl md:text-6xl font-extrabold gradient-text mb-4">
                 Web Apps & Tools
               </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Explore our collection of cutting-edge tools designed for industrial excellence
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                Explore our collection of powerful web applications
               </p>
+
+              {/* Category Filter Tabs */}
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <button
+                  onClick={() => setActiveCategory('all')}
+                  className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'all'
+                      ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/50'
+                      : 'glass border-2 border-cyan-500/30 text-cyan-400 hover:border-cyan-500'
+                    }`}
+                >
+                  <i className="fas fa-th mr-2"></i>All Apps
+                </button>
+                <button
+                  onClick={() => setActiveCategory('generic')}
+                  className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'generic'
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50'
+                      : 'glass border-2 border-purple-500/30 text-purple-400 hover:border-purple-500'
+                    }`}
+                >
+                  <i className="fas fa-tools mr-2"></i>Generic Web Apps
+                </button>
+                <button
+                  onClick={() => setActiveCategory('engineering')}
+                  className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'engineering'
+                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/50'
+                      : 'glass border-2 border-indigo-500/30 text-indigo-400 hover:border-indigo-500'
+                    }`}
+                >
+                  <i className="fas fa-industry mr-2"></i>Engineering Web Apps
+                </button>
+              </div>
+
+              {/* Category Description */}
+              {activeCategory !== 'all' && (
+                <div className="max-w-2xl mx-auto glass p-6 rounded-xl border border-cyan-500/30 mb-8">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <i className={`${platformData.categories[activeCategory].icon} text-3xl text-cyan-400`}></i>
+                    <h3 className="text-2xl font-bold text-cyan-400">
+                      {platformData.categories[activeCategory].title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-300">
+                    {platformData.categories[activeCategory].description}
+                  </p>
+                </div>
+              )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {platformData.tools.map((tool, index) => (
+              {getFilteredApps().map((tool, index) => (
                 <div
                   key={tool.id}
                   className="tool-card rounded-xl shadow-2xl overflow-hidden"
@@ -573,7 +688,11 @@ function App() {
                       ))}
                     </div>
                     <div className="flex justify-start">
-                      {tool.liveLink && (
+                      {tool.status === 'Coming Soon' ? (
+                        <span className="inline-flex items-center bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg">
+                          <i className="fas fa-clock mr-2"></i>Coming Soon
+                        </span>
+                      ) : tool.liveLink && (
                         <a
                           href={tool.liveLink}
                           target="_blank"
