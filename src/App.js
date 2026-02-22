@@ -120,9 +120,7 @@ function App() {
         ]
       }
     },
-    contactEmail: 'ranjanoa@gmail.com',
-    linkedinUrl: 'https://linkedin.com/in/ranjanoa',
-    githubUrl: 'https://github.com/ranjanoa'
+    contactEmail: 'ranjanoa@gmail.com'
   };
 
   // Get all apps for carousel
@@ -611,8 +609,8 @@ function App() {
                 <button
                   onClick={() => setActiveCategory('all')}
                   className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'all'
-                      ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/50'
-                      : 'glass border-2 border-cyan-500/30 text-cyan-400 hover:border-cyan-500'
+                    ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/50'
+                    : 'glass border-2 border-cyan-500/30 text-cyan-400 hover:border-cyan-500'
                     }`}
                 >
                   <i className="fas fa-th mr-2"></i>All Apps
@@ -620,8 +618,8 @@ function App() {
                 <button
                   onClick={() => setActiveCategory('generic')}
                   className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'generic'
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50'
-                      : 'glass border-2 border-purple-500/30 text-purple-400 hover:border-purple-500'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50'
+                    : 'glass border-2 border-purple-500/30 text-purple-400 hover:border-purple-500'
                     }`}
                 >
                   <i className="fas fa-tools mr-2"></i>Generic Web Apps
@@ -629,8 +627,8 @@ function App() {
                 <button
                   onClick={() => setActiveCategory('engineering')}
                   className={`px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 ${activeCategory === 'engineering'
-                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/50'
-                      : 'glass border-2 border-indigo-500/30 text-indigo-400 hover:border-indigo-500'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/50'
+                    : 'glass border-2 border-indigo-500/30 text-indigo-400 hover:border-indigo-500'
                     }`}
                 >
                   <i className="fas fa-industry mr-2"></i>Engineering Web Apps
@@ -726,50 +724,14 @@ function App() {
                 Have questions or feedback about our tools? Want to collaborate or suggest new features?
                 <span className="font-bold text-cyan-400"> We'd love to hear from you!</span>
               </p>
-              <div className="grid md:grid-cols-2 gap-6 mb-10">
+              <div className="max-w-md mx-auto mb-10">
                 <a
                   href={`mailto:${platformData.contactEmail}`}
-                  className="glass p-6 rounded-xl hover:border-cyan-500 border border-transparent transition-all duration-300 hover:scale-105 group"
+                  className="glass p-6 rounded-xl hover:border-cyan-500 border border-transparent transition-all duration-300 hover:scale-105 group block"
                 >
                   <i className="fas fa-envelope text-4xl text-cyan-400 mb-3 group-hover:scale-110 transition-transform"></i>
                   <p className="text-gray-400 text-sm mb-1">Email</p>
                   <p className="text-cyan-300 font-semibold">{platformData.contactEmail}</p>
-                </a>
-                <a
-                  href={platformData.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glass p-6 rounded-xl hover:border-blue-500 border border-transparent transition-all duration-300 hover:scale-105 group"
-                >
-                  <i className="fab fa-linkedin text-4xl text-blue-400 mb-3 group-hover:scale-110 transition-transform"></i>
-                  <p className="text-gray-400 text-sm mb-1">LinkedIn</p>
-                  <p className="text-blue-300 font-semibold">Connect with us</p>
-                </a>
-              </div>
-              <div className="flex justify-center space-x-6">
-                <a
-                  href={platformData.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-blue-500 hover:scale-110 transition-all duration-300 group"
-                >
-                  <i className="fab fa-linkedin text-2xl text-blue-400 group-hover:text-white"></i>
-                </a>
-                {platformData.githubUrl && (
-                  <a
-                    href={platformData.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-purple-500 hover:scale-110 transition-all duration-300 group"
-                  >
-                    <i className="fab fa-github text-2xl text-purple-400 group-hover:text-white"></i>
-                  </a>
-                )}
-                <a
-                  href={`mailto:${platformData.contactEmail}`}
-                  className="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-cyan-500 hover:scale-110 transition-all duration-300 group"
-                >
-                  <i className="fas fa-envelope text-2xl text-cyan-400 group-hover:text-white"></i>
                 </a>
               </div>
             </div>
