@@ -21,10 +21,9 @@ function App() {
             title: 'Resume Creator',
             description: 'Create professional, ATS-friendly resumes with modern templates. Customize layouts, add your experience, and download in PDF format. Perfect for job seekers looking to make a great first impression.',
             thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=Resume+Creator',
-            liveLink: '#',
+            liveLink: 'https://pro-resume-ranjanoas-projects.vercel.app/',
             techStack: 'React, PDF Generation, Templates, Form Validation',
-            category: 'Productivity',
-            status: 'Coming Soon'
+            category: 'Productivity'
           },
           {
             id: 'generic2',
