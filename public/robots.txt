@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://webapps-platform.pages.dev/sitemap.xml
+Sitemap: https://resumecreator.store/sitemap.xml
