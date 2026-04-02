@@ -23,37 +23,8 @@ function App() {
             thumbnail: '/apps/resume-thumbnail.png',
             liveLink: 'https://pro-resume-ranjanoas-projects.vercel.app/',
             techStack: 'React, PDF Generation, Templates, Form Validation',
-            category: 'Productivity'
-          },
-          {
-            id: 'generic2',
-            title: 'PDF Toolkit',
-            description: 'Comprehensive PDF management tool. Merge multiple PDFs, split large documents, compress file sizes, and convert between formats. All processing happens in your browser for maximum privacy.',
-            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=PDF+Toolkit',
-            liveLink: '#',
-            techStack: 'PDF.js, File Processing, Client-side Processing',
-            category: 'Utilities',
-            status: 'Coming Soon'
-          },
-          {
-            id: 'generic3',
-            title: 'Image Compressor',
-            description: 'Optimize images for web without losing quality. Batch compress JPG, PNG, and WebP files. Reduce file sizes by up to 80% while maintaining visual fidelity. Perfect for web developers and content creators.',
-            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=Image+Compressor',
-            liveLink: '#',
-            techStack: 'Canvas API, Image Processing, WebP Conversion',
-            category: 'Media',
-            status: 'Coming Soon'
-          },
-          {
-            id: 'generic4',
-            title: 'URL Shortener',
-            description: 'Create short, memorable links for easy sharing. Track click analytics, set expiration dates, and customize short URLs. Ideal for social media, marketing campaigns, and link management.',
-            thumbnail: 'https://placehold.co/600x400/1F2937/00ffff?text=URL+Shortener',
-            liveLink: '#',
-            techStack: 'API Integration, Analytics, QR Code Generation',
-            category: 'Utilities',
-            status: 'Coming Soon'
+            category: 'Productivity',
+            buttonText: 'Launch App'
           }
         ]
       },
@@ -63,13 +34,24 @@ function App() {
         icon: 'fas fa-industry',
         apps: [
           {
+            id: 'eng7',
+            title: 'Exploratory Data Analysis',
+            description: 'A comprehensive tool for exploratory analysis of process data. Upload, merge, and align datasets with advanced preprocessing, correlation mapping, and trend visualization for industrial process optimization.',
+            thumbnail: '/apps/eda-thumbnail.png',
+            liveLink: 'https://huggingface.co/spaces/ranjanoa/datanalysis',
+            techStack: 'React, FastAPI, Data Analytics, Correlation Mapping',
+            category: 'Analytics',
+            buttonText: 'Launch App'
+          },
+          {
             id: 'eng1',
             title: 'Industrial AI Control',
             description: 'A cutting-edge AI optimization digital twin solution for industrial processes. This provides real-time 3D simulation and optimization of industrial lime kiln. Leverage predictive simulation and immersive visualization for proactive maintenance and operational excellence in a truly futuristic environment.',
             thumbnail: 'https://drive.google.com/thumbnail?id=1B0tzzRBIFVgcv9pLjys80kZxFmKnXUx7&sz=w600',
             liveLink: 'https://drive.google.com/file/d/1rwm8u1ygODtuVTdPalIBN3e5NMldFYWt/view?usp=sharing',
             techStack: 'Digital Twins, Process Simulation, Predictive Control, Energy Optimization',
-            category: 'AI & Optimization'
+            category: 'AI & Optimization',
+            buttonText: 'Demo Video'
           },
           {
             id: 'eng2',
@@ -78,7 +60,8 @@ function App() {
             thumbnail: 'https://drive.google.com/thumbnail?id=1YFBNqwx-cMqBXe3LafvbDVFHOjP8ai_k&sz=w600',
             liveLink: 'https://drive.google.com/file/d/1DMqqk6ixXG2ofg0F3yCG7UWixL6SmSB8/view?usp=sharing',
             techStack: 'Digital Twins, 3D Simulation, Predictive Analytics, AI/ML, Process Optimization',
-            category: 'Digital Twins'
+            category: 'Digital Twins',
+            buttonText: 'Demo Video'
           },
           {
             id: 'eng3',
@@ -87,7 +70,8 @@ function App() {
             thumbnail: 'https://drive.google.com/thumbnail?id=1k8yi9HfNdzI6JR75DO60QxUUaYrJmFMq&sz=w600',
             liveLink: 'https://drive.google.com/file/d/1PWTRhFkOnbraC1TXvhCWMytkVSzzpp0K/view?usp=sharing',
             techStack: 'Python, Simulation Software, Data Analytics, Digital Twins',
-            category: 'Visualization'
+            category: 'Visualization',
+            buttonText: 'Demo Video'
           },
           {
             id: 'eng4',
@@ -96,7 +80,8 @@ function App() {
             thumbnail: 'https://drive.google.com/thumbnail?id=1L-L0ivvqoZNc_BRZig7rOL5Az6cRkiux&sz=w600',
             liveLink: 'https://drive.google.com/file/d/1vk3KOxFIKRkxVFpOjcN3BogDN_mbAi4I/view?usp=sharing',
             techStack: 'AI, Document Analysis, Simulation Parameters',
-            category: 'AI & Analysis'
+            category: 'AI & Analysis',
+            buttonText: 'Demo Video'
           },
           {
             id: 'eng5',
@@ -105,7 +90,8 @@ function App() {
             thumbnail: 'https://drive.google.com/thumbnail?id=1xqFWNVlDkJJwq8q7P_6FGlhqkCQ7TLCa&sz=w600',
             liveLink: 'https://drive.google.com/file/d/19qyQxT51OxxElUeBzp0Cp1mw9QkFaqyB/view?usp=sharing',
             techStack: 'Hydraulic Simulation, MOC, Real-time Monitoring, Leak Detection',
-            category: 'Monitoring'
+            category: 'Monitoring',
+            buttonText: 'Demo Video'
           },
           {
             id: 'eng6',
@@ -114,16 +100,8 @@ function App() {
             thumbnail: 'https://drive.google.com/thumbnail?id=18ZbyUebl2r0uepCg9Kg73fqMlo9j8Hve&sz=w600',
             liveLink: 'https://drive.google.com/file/d/1wLJs3O4g09dP9NTURiosyg_elRer3WMa/view?usp=sharing',
             techStack: 'Financial Modeling, Environmental Impact, Process Improvement, ROI Analysis',
-            category: 'Analytics'
-          },
-          {
-            id: 'eng7',
-            title: 'Exploratory Data Analysis',
-            description: 'A comprehensive tool for exploratory analysis of process data. Upload, merge, and align datasets with advanced preprocessing, correlation mapping, and trend visualization for industrial process optimization.',
-            thumbnail: '/apps/eda-thumbnail.png',
-            liveLink: 'https://huggingface.co/spaces/ranjanoa/datanalysis',
-            techStack: 'React, FastAPI, Data Analytics, Correlation Mapping',
-            category: 'Analytics'
+            category: 'Analytics',
+            buttonText: 'Demo Video'
           }
         ]
       }
@@ -585,7 +563,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="tool-showcase-link"
                         >
-                          <i className="fas fa-external-link-alt mr-2"></i>Launch App
+                          <i className="fas fa-external-link-alt mr-2"></i>{tool.buttonText || 'Launch App'}
                         </a>
                       )}
                     </div>
@@ -705,7 +683,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50"
                         >
-                          <i className="fas fa-external-link-alt mr-2"></i>Launch App
+                          <i className="fas fa-external-link-alt mr-2"></i>{tool.buttonText || 'Launch App'}
                         </a>
                       )}
                     </div>
