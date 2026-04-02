@@ -115,6 +115,15 @@ function App() {
             liveLink: 'https://drive.google.com/file/d/1wLJs3O4g09dP9NTURiosyg_elRer3WMa/view?usp=sharing',
             techStack: 'Financial Modeling, Environmental Impact, Process Improvement, ROI Analysis',
             category: 'Analytics'
+          },
+          {
+            id: 'eng7',
+            title: 'Exploratory Data Analysis',
+            description: 'A comprehensive tool for exploratory analysis of process data. Upload, merge, and align datasets with advanced preprocessing, correlation mapping, and trend visualization for industrial process optimization.',
+            thumbnail: '%PUBLIC_URL%/apps/eda-thumbnail.png',
+            liveLink: 'https://huggingface.co/spaces/ranjanoa/datanalysis',
+            techStack: 'React, FastAPI, Data Analytics, Correlation Mapping',
+            category: 'Analytics'
           }
         ]
       }
