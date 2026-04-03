@@ -38,7 +38,7 @@ function App() {
             title: 'Exploratory Data Analysis',
             description: 'A comprehensive tool for exploratory analysis of process data. Upload, merge, and align datasets with advanced preprocessing, correlation mapping, and trend visualization for industrial process optimization.',
             thumbnail: '/apps/eda-thumbnail.png',
-            liveLink: 'https://huggingface.co/spaces/ranjanoa/datanalysis',
+            liveLink: 'https://dataeda-production.up.railway.app/',
             techStack: 'React, FastAPI, Data Analytics, Correlation Mapping',
             category: 'Analytics',
             buttonText: 'Launch App'
