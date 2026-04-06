@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://resumecreator.store/sitemap.xml
+Sitemap: https://pro-resume-ranjanoas-projects.vercel.app/sitemap.xml
